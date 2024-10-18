@@ -249,6 +249,30 @@ function setCircleBorderColor(circle, percentage) {
             <div id="dashboardContainer" class="space-y-6">
     <h1 class="text-2xl font-bold">Dashboard</h1>
 
+     <!-- Assessment Cards Section -->
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Upcoming Assessments</h3>
+            <p class="text-sm text-gray-600">1. Midterm Exam - 20th October</p>
+            <p class="text-sm text-gray-600">2. Final Exam - 15th November</p>
+            <p class="text-sm text-gray-600">3. Quiz 1 - 10th October</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Recent Submissions</h3>
+            <p class="text-sm text-gray-600">1. Assignment 1 - Submitted</p>
+            <p class="text-sm text-gray-600">2. Quiz 1 - Graded</p>
+            <p class="text-sm text-gray-600">3. Project 1 - Pending Review</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Grades Overview</h3>
+            <p class="text-sm text-gray-600">Midterm Exam: A-</p>
+            <p class="text-sm text-gray-600">Final Exam: Upcoming</p>
+            <p class="text-sm text-gray-600">Quiz Average: B+</p>
+        </div>
+    </div>
+
     <!-- Pie Chart -->
     <div class="w-full md:w-1/2 mx-auto">
         <canvas id="myPieChart" class="w-full h-48"></canvas>
@@ -294,32 +318,6 @@ function setCircleBorderColor(circle, percentage) {
 </div>
 
 
-
-
-
-    <!-- Assessment Cards Section -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-semibold mb-2">Upcoming Assessments</h3>
-            <p class="text-sm text-gray-600">1. Midterm Exam - 20th October</p>
-            <p class="text-sm text-gray-600">2. Final Exam - 15th November</p>
-            <p class="text-sm text-gray-600">3. Quiz 1 - 10th October</p>
-        </div>
-
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-semibold mb-2">Recent Submissions</h3>
-            <p class="text-sm text-gray-600">1. Assignment 1 - Submitted</p>
-            <p class="text-sm text-gray-600">2. Quiz 1 - Graded</p>
-            <p class="text-sm text-gray-600">3. Project 1 - Pending Review</p>
-        </div>
-
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-semibold mb-2">Grades Overview</h3>
-            <p class="text-sm text-gray-600">Midterm Exam: A-</p>
-            <p class="text-sm text-gray-600">Final Exam: Upcoming</p>
-            <p class="text-sm text-gray-600">Quiz Average: B+</p>
-        </div>
-    </div>
 </div>
 
 
