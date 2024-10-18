@@ -69,8 +69,88 @@
                 }
             });
         }
+
+        function loadCircleProgress() {
+            
+        }
+
+        // START:: LOAD PROGRESS
+        document.addEventListener('DOMContentLoaded', () => {
+    const circles = document.querySelectorAll('.circle-progress');
+
+    circles.forEach(circle => {
+        const percentage = parseInt(circle.getAttribute('data-percentage')); // Get the percentage as an integer
+        let currentPercentage = 0; // Start at 0%
+
+        // Set the CSS variable for the conic-gradient background
+        circle.style.setProperty('--percentage', currentPercentage + 'deg'); // Initialize at 0
+
+        // Determine the border color based on final percentage
+        setCircleBorderColor(circle, percentage);
+
+        // Animate the percentage from 0 to the specified value
+        const interval = setInterval(() => {
+            if (currentPercentage < percentage) {
+                currentPercentage++;
+                circle.style.setProperty('--percentage', currentPercentage + 'deg'); // Update the gradient
+                circle.querySelector('.percentage-text').textContent = `${currentPercentage}%`; // Update text
+            } else {
+                clearInterval(interval); // Stop when we reach the target percentage
+            }
+        }, 20); // Adjust the speed of the animation here (milliseconds)
+    });
+});
+
+function setCircleBorderColor(circle, percentage) {
+    // Determine the border color based on percentage
+    if (percentage <= 40) {
+        circle.style.borderColor = 'red'; // For 0% - 40%
+    } else if (percentage <= 70) {
+        circle.style.borderColor = 'yellow'; // For 41% - 70%
+    } else {
+        circle.style.borderColor = 'green'; // For 71% - 100%
+    }
+}
+
+
     </script>
 </head>
+<style>
+   .circle-progress {
+    position: relative;
+    width: 100px;  /* Diameter of the circle */
+    height: 100px; /* Diameter of the circle */
+    border-radius: 50%; /* Make it circular */
+    border: 8px solid #4A90E2; /* Outline color and thickness */
+    background: conic-gradient(
+        #4A90E2 var(--percentage, 0%),
+        #e0e0e0 0%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Space around the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    background-clip: padding-box; /* Ensures the background doesn't overlap the border */
+    transition: background 0.5s ease; /* Smooth transition for background */
+}
+
+.percentage-text {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.2rem; /* Adjust font size as needed */
+    color: #000; /* Color of the text */
+    border-radius: 50%; /* Round text background */
+    padding: 5px 10px; /* Padding around text */
+    transition: opacity 0.5s ease; /* Smooth transition for text opacity */
+}
+
+.circle-progress[data-percentage] {
+    --percentage: calc(var(--percentage) * 1deg); /* Set custom property based on percentage */
+}
+
+
+</style>
 <body class="bg-gray-100">
 
     <!-- Sidebar and Main Content Container -->
@@ -174,40 +254,48 @@
         <canvas id="myPieChart" class="w-full h-48"></canvas>
     </div>
 
-    <!-- Progress Bars Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h2 class="text-xl font-semibold mb-4">Course Completion</h2>
-            <div class="mb-2">
-                <span>HTML/CSS</span>
-                <div class="h-2 bg-green-500 rounded" style="width: 80%;"></div>
-            </div>
-            <div class="mb-2">
-                <span>JavaScript</span>
-                <div class="h-2 bg-green-500 rounded" style="width: 60%;"></div>
-            </div>
-            <div class="mb-2">
-                <span>PHP</span>
-                <div class="h-2 bg-green-500 rounded" style="width: 90%;"></div>
-            </div>
+<!-- Progress Bars Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center">
+        <h2 class="text-xl font-semibold mb-4">Course Completion</h2>
+        <div class="circle-progress mb-4" data-percentage="80" aria-label="HTML/CSS Completion">
+            <span class="percentage-text">0%</span>
         </div>
-
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h2 class="text-xl font-semibold mb-4">Assessments</h2>
-            <div class="mb-2">
-                <span>Midterm Exam</span>
-                <div class="h-2 bg-blue-500 rounded" style="width: 75%;"></div>
-            </div>
-            <div class="mb-2">
-                <span>Final Exam</span>
-                <div class="h-2 bg-blue-500 rounded" style="width: 50%;"></div>
-            </div>
-            <div class="mb-2">
-                <span>Quizzes</span>
-                <div class="h-2 bg-blue-500 rounded" style="width: 85%;"></div>
-            </div>
+        <span class="text-sm">HTML/CSS Completion</span> <!-- Added name -->
+        
+        <div class="circle-progress mb-4" data-percentage="60" aria-label="JavaScript Completion">
+            <span class="percentage-text">0%</span>
         </div>
+        <span class="text-sm">JavaScript Completion</span> <!-- Added name -->
+        
+        <div class="circle-progress mb-4" data-percentage="90" aria-label="PHP Completion">
+            <span class="percentage-text">0%</span>
+        </div>
+        <span class="text-sm">PHP Completion</span> <!-- Added name -->
     </div>
+
+    <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center">
+        <h2 class="text-xl font-semibold mb-4">Assessments</h2>
+        <div class="circle-progress mb-4" data-percentage="75" aria-label="Midterm Exam Completion">
+            <span class="percentage-text">0%</span>
+        </div>
+        <span class="text-sm">Midterm Exam Completion</span> <!-- Added name -->
+
+        <div class="circle-progress mb-4" data-percentage="50" aria-label="Final Exam Completion">
+            <span class="percentage-text">0%</span>
+        </div>
+        <span class="text-sm">Final Exam Completion</span> <!-- Added name -->
+        
+        <div class="circle-progress mb-4" data-percentage="85" aria-label="Quizzes Completion">
+            <span class="percentage-text">0%</span>
+        </div>
+        <span class="text-sm">Quizzes Completion</span> <!-- Added name -->
+    </div>
+</div>
+
+
+
+
 
     <!-- Assessment Cards Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
