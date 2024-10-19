@@ -78,7 +78,7 @@
                 </nav>
             </aside>
 
-        <!-- Main Content -->
+        <!-- Profile Dropdown Start -->
         <div class="flex-1 flex flex-col">
             
             <!-- Navbar -->
@@ -103,9 +103,11 @@
                 </div>
             </header>
 
-            <!-- Content Area -->
+            <!-- Main Content Area -->
             <main class="flex-1 p-6 overflow-y-auto">
-            <div id="dashboardContainer" class="space-y-6">
+                
+      <!--- DASHBOARD CONTAINER START-->      
+<div id="dashboardContainer" class="space-y-6">
     <h1 class="text-2xl font-bold">Dashboard</h1>
 
      <!-- Assessment Cards Section -->
@@ -132,12 +134,12 @@
         </div>
     </div>
 
-    <!-- Pie Chart -->
+    <!-- Load Pie Chart -->
     <div class="w-full md:w-1/2 mx-auto">
         <canvas id="myPieChart" class="w-full h-48"></canvas>
     </div>
 
-<!-- Progress Bars Section -->
+<!-- Progress Bars Section & Assessment Completions Start-->
 <div class="bg-white p-4 rounded-lg shadow">
     <h2 class="text-xl font-semibold mb-4">Course Progress</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -188,14 +190,12 @@
             <span class="text-sm">Quizzes Completion</span>
         </div>
     </div>
-</div>
+</div>  <!-- Progress Bar & Assessment Completions End --> 
+
+</div> <!---- END OF DASHBOARD CONTAINER -->
 
 
-
-</div>
-
-
-                <!-- Other Content Containers -->
+                <!-- Content Containers -->
                 <div id="activeAssessmentContainer" class="hidden">Active Assessments Content</div>
                 <div id="myCourseContainer" class="hidden">My Courses Content</div>
                 <div id="courseMaterialsContainer" class="hidden">Course Materials Content</div>
@@ -211,8 +211,11 @@
                 <div id="exportReportContainer" class="hidden">Export Reports Content</div>
                 <div id="accountContainer" class="hidden">Account Content</div>
                 <div id="settingsContainer" class="hidden">Settings Content</div>
-            </main>
-        </div>
-    </div>
+
+
+            </main> <!--- End of Main Content -->
+        </div>    <!-- Profile Dropdown End -->
+    </div>     <!--End of Sidebar and Main Content Container -->
+
 </body>
 </html>
