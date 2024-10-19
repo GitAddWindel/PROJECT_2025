@@ -1,0 +1,46 @@
+.circle-progress {
+    position: relative;
+    width: 100px;  /* Diameter of the circle */
+    height: 100px; /* Diameter of the circle */
+    border-radius: 50%; /* Make it circular */
+    border: 8px solid #4A90E2; /* Outline color and thickness */
+    background: conic-gradient(
+        #4A90E2 var(--percentage, 0%),
+        #e0e0e0 0%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Space around the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-clip: padding-box; /* Ensures the background doesn't overlap the border */
+    transition: background 0.5s ease; /* Smooth transition for background */
+}
+
+.percentage-text {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.2rem; 
+    color: #000;
+    border-radius: 50%; 
+    padding: 5px 10px; /* Padding around text */
+    transition: opacity 0.5s ease; /* Smooth transition for text opacity */
+}
+
+.circle-progress[data-percentage] {
+    --percentage: calc(var(--percentage) * 1deg); /* custom property based on percentage */
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .grid {
+        display: block; /* Stack vertically on small screens */
+    }
+}
