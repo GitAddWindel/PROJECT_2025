@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <script src="assets/js/modal.js"></script>
 </head>
 
 <body class="bg-gray-100">
@@ -108,7 +109,14 @@
                 <div class="text-xl font-semibold"><button onclick="toggleSidebar()"><img src="../public/assets/default-images/menubar.png" alt="menu bar" class="w-5 h-5 cursor-pointer"></button></div>
                 
                 <div class="flex space-x-4 items-center">
-                    <a href="#" class="text-white py-2 px-4 rounded"><img src="../public/assets/default-images/notification.png" alt="notification icon" class="bg-white w-5 h-5 cursor-pointer"></a>
+             <!-- Add User Button -->
+                    <a href="#" class="text-white py-2 px-4 rounded" id="openModal">
+                    <img src="../public/assets/default-images/add_user.png" alt="add user icon" class="bg-white w-5 h-5 cursor-pointer">
+                    </a>
+
+        
+            <!--- notification icon -->
+        <a href="#" class="text-white py-2 px-4 rounded"><img src="../public/assets/default-images/notification.png" alt="notification icon" class="bg-white w-5 h-5 cursor-pointer"></a>
 
                     <!-- Profile Image with Dropdown -->
                 <div class="relative">
@@ -232,6 +240,29 @@
                 <div id="exportReportContainer" class="hidden">Export Reports Content</div>
                 <div id="accountContainer" class="hidden">Account Content</div>
                 <div id="settingsContainer" class="hidden">Settings Content</div>
+
+
+                    <!-- Add Student Modal (Hidden by default) -->
+                    <div id="myModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center">
+                    <!-- Modal Content -->
+                    <div class="bg-white rounded-lg shadow-lg w-1/3">
+                        <!-- Modal Header -->
+                        <div class="flex justify-between items-center p-4 border-b">
+                        <h3 class="text-lg font-bold">Add New User</h3>
+                        <button id="closeModal" class="text-gray-500 hover:text-gray-700 font-bold text-2xl">&times;</button>
+                        </div>
+                        <!-- Modal Body -->
+                        <div class="p-4">
+                        <p class="text-sm">Fill in the details to add a new user.</p>
+                        <!-- You can add form inputs here -->
+                        </div>
+                        <!-- Modal Footer -->
+                        <div class="flex justify-end p-4 border-t">
+                        <button id="closeModalBottom" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Close</button>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded ml-2 hover:bg-blue-600">Save</button>
+                        </div>
+                    </div>
+                    </div>
 
 
             </main> <!--- End of Main Content -->
