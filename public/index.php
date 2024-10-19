@@ -9,6 +9,7 @@
     <script src="assets/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <script src="assets/js/modal.js"></script>
+    <script src="assets/js/notif.js"></script>
 </head>
 
 <body class="bg-gray-100">
@@ -115,9 +116,28 @@
                     </a>
 
         
-            <!--- notification icon -->
-        <a href="#" class="text-white py-2 px-4 rounded"><img src="../public/assets/default-images/notification.png" alt="notification icon" class="bg-white w-5 h-5 cursor-pointer"></a>
+       <!-- Notification Icon -->
+            <div class="relative inline-block">
+            <!-- Notification Button -->
+            <a href="#" id="notificationButton" class="text-white py-2 px-4 rounded">
+                <img src="../public/assets/default-images/notification.png" alt="notification icon" class="bg-white w-5 h-5 cursor-pointer">
+            </a>
 
+            <!-- Notif Dropdown Content (Initially Hidden) -->
+            <div id="notificationDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg hidden z-10">
+                <div class="py-2">
+                <p class="px-4 py-2 text-gray-800 border-b">Notifications</p>
+                <!-- Notification Items -->
+                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">New comment on your post</a>
+                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">New like on your photo</a>
+                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">John Doe sent you a message</a>
+                </div>
+                <div class="py-2">
+                <a href="#" class="block px-4 py-2 text-center text-blue-500 hover:text-blue-700">See all notifications</a>
+                </div>
+            </div>
+            
+            </div>
                     <!-- Profile Image with Dropdown -->
                 <div class="relative">
                     <img src="../public/assets/default-images/default-profile.png" alt="Profile Image" class="rounded-full w-10 h-10 cursor-pointer dropdown-toggle" onclick="toggleDropdown()">
@@ -242,27 +262,29 @@
                 <div id="settingsContainer" class="hidden">Settings Content</div>
 
 
-                    <!-- Add Student Modal (Hidden by default) -->
-                    <div id="myModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center">
-                    <!-- Modal Content -->
-                    <div class="bg-white rounded-lg shadow-lg w-1/3">
-                        <!-- Modal Header -->
-                        <div class="flex justify-between items-center p-4 border-b">
-                        <h3 class="text-lg font-bold">Add New User</h3>
-                        <button id="closeModal" class="text-gray-500 hover:text-gray-700 font-bold text-2xl">&times;</button>
-                        </div>
-                        <!-- Modal Body -->
-                        <div class="p-4">
-                        <p class="text-sm">Fill in the details to add a new user.</p>
-                        <!-- You can add form inputs here -->
-                        </div>
-                        <!-- Modal Footer -->
-                        <div class="flex justify-end p-4 border-t">
-                        <button id="closeModalBottom" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Close</button>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded ml-2 hover:bg-blue-600">Save</button>
-                        </div>
-                    </div>
-                    </div>
+                 
+                   <!-- Add Student Modal (Hidden by default) -->
+                            <div id="myModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center">
+                            <!-- Modal Content -->
+                            <div class="bg-white rounded-lg shadow-lg w-full md:w-1/3 mx-4 md:mx-0">
+                                <!-- Modal Header -->
+                                <div class="flex justify-between items-center p-4 border-b">
+                                <h3 class="text-lg font-bold">Add New User</h3>
+                                <button id="closeModal" class="text-gray-500 hover:text-gray-700 font-bold text-2xl">&times;</button>
+                                </div>
+                                <!-- Modal Body -->
+                                <div class="p-4">
+                                <p class="text-sm">Fill in the details to add a new user.</p>
+                                <!-- You can add form inputs here -->
+                                </div>
+                                <!-- Modal Footer -->
+                                <div class="flex justify-end p-4 border-t">
+                                <button id="closeModalBottom" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Close</button>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded ml-2 hover:bg-blue-600">Save</button>
+                                </div>
+                            </div>
+                            </div>
+
 
 
             </main> <!--- End of Main Content -->
