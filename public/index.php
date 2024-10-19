@@ -17,7 +17,28 @@
         
             <!-- Sidebar (toggled for mobile view) -->
             <aside id="sidebar" class="w-64 bg-gray-800 text-white hidden md:block">
-                <div class="p-4 text-center font-bold text-xl">My Dashboard</div>
+            <div class="container mt-4">
+                <div class="row">
+                    
+                    <!-- Right Side: Dashboard Title -->
+                    <div class="col-md-8 d-flex align-items-center justify-content-center">
+                    <div class="p-4 text-center font-bold text-xl">
+                        My Dashboard
+                    </div>
+                    </div>
+
+                    <!-- Left Side: Fullname, Login Date/Time -->
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                    <div class="mt-2 text-center">
+                        <p class="font-bold text-lg">Juan Dela Cruz</p> 
+                        <p class="text-sm text-muted">Login: 2024-10-19 10:00 AM</p> 
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+
+
                 <nav>
                     <ul class="space-y-4 p-4">
                         <li>
